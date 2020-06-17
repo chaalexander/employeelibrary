@@ -6,6 +6,7 @@ function Header() {
       <h1>Employee Library</h1>
 
       <p>Search the employee by name.</p>
+      
     </header>
   );
 }
