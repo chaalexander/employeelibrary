@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import axios from "axios";
+
 import Header from "./componentes/layout/Header";
 // import Table from "./componentes/Table";
 // import AddTodo from "./components/AddTodo";
@@ -13,12 +13,6 @@ class App extends Component {
   state = {
     users: [],
   };
-
-  componentDidMount() {
-    axios
-      .get("https://randomuser.me/api/?results=20")
-      .then((res) => this.setState({ users: res.data }));
-  }
 
   render() {
     return <Header />;
