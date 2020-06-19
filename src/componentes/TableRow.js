@@ -11,7 +11,7 @@ const styles = {
 export default function TableRow(props) {
   return (
     <>
-      <tr>
+      <tr className="tableRow">
         <th scope="row">
           <img style={styles.image} alt={props.first} src={props.thumbnail} />
         </th>
