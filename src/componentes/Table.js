@@ -41,19 +41,18 @@ class Table extends Component {
               <th scope="col">Last</th>
               <th scope="col">E-mail</th>
               <th scope="col">Country</th>
-              <th scope="col">DOB</th>
               <th scope="col">Phone Number</th>
             </tr>
           </thead>
           <tbody>
-            {this.state.users.map((user) => (
+            {this.state.users.map((user, index) => (
               <TableRow
+                key={index}
                 first={user.name.first}
                 thumbnail={user.picture.thumbnail}
                 last={user.name.last}
                 email={user.email}
                 country={user.location.country}
-                dob={user.dob.date}
                 phone={user.phone}
               />
             ))}
