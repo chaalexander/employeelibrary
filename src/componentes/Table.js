@@ -11,7 +11,7 @@ const inputStyle = {
 
 function Table(props) {
   return (
-    <div className="App">
+    
       <div className="container">
         <input
           style={inputStyle}
@@ -58,7 +58,7 @@ function Table(props) {
           </tbody>
         </table>
       </div>
-    </div>
+    
   );
 }
 
