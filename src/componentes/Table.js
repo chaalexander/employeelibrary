@@ -1,5 +1,6 @@
-import React from "react";
-// import PropTypes from 'prop-types';
+import React, { Component } from "react";
+import Api from "../util/Api";
+import TableRow from "./TableRow";
 
 const inputStyle = {
   marginLeft: "400px",
@@ -9,9 +10,20 @@ const inputStyle = {
   padding: "5px ",
 };
 
-function Table(props) {
-  return (
-    
+class Table extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { users: [] };
+  }
+
+  componentDidMount() {
+    Api.search().then((res) => {
+      this.setState({ users: res.data.results }, () => console.log(this.state));
+    });
+  }
+
+  render() {
+    return (
       <div className="container">
         <input
           style={inputStyle}
@@ -21,7 +33,7 @@ function Table(props) {
           value="{this.state.title}"
           onChange="{this.onChange}"
         ></input>
-        <table class="table table-hover">
+        <table className="table table-hover">
           <thead>
             <tr>
               <th scope="col"></th>
@@ -34,32 +46,22 @@ function Table(props) {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              {/* <th scope="row">
-                {
-                  <img alt={props.name.first} src={props.picture.thumbnail} />  props.id
-                }
-              </th>
-              <td>{props.name.first}</td>
-              <td>{props.name.last}</td>
-              <td>{props.email}</td>
-              <td>{props.location.country}</td>
-              <td>{props.dob.date}</td>
-              <td>{props.phone}</td> */}
-
-              <th scope="row">1</th>
-              <td>Peter</td>
-              <td>Parker</td>
-              <td>peter@gmail.com</td>
-              <td>USA</td>
-              <td>08-09-99</td>
-              <td>1234</td>
-            </tr>
+            {this.state.users.map((user) => (
+              <TableRow
+                first={user.name.first}
+                thumbnail={user.picture.thumbnail}
+                last={user.name.last}
+                email={user.email}
+                country={user.location.country}
+                dob={user.dob.date}
+                phone={user.phone}
+              />
+            ))}
           </tbody>
         </table>
       </div>
-    
-  );
+    );
+  }
 }
 
 // Table.propTypes = {
