@@ -21,7 +21,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "homepage": "https://github.com/chaalexander/employeelibrary"
+    "homepage": "https://chaalexander.github.io/employeelibrary/"
   },
   "eslintConfig": {
     "extends": "react-app"
