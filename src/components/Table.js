@@ -13,29 +13,58 @@ const inputStyle = {
 
 const sortTypes = {
   up: {
-    class: "sort-up",
-    fn: (a, b) => a.users - b.users,
+    class: "arrow-up",
+    fn: (a, b) => {
+      const nameA = a.name.first.toUpperCase();
+      const nameB = b.name.first.toUpperCase();
+      if (nameA < nameB) {
+        return -1;
+      }
+      if (nameA > nameB) {
+        return 1;
+      }
+
+      return 0;
+    },
   },
   down: {
-    class: "sort-down",
-    fn: (a, b) => b.users - a.users,
+    class: "arrow-down",
+    fn: (a, b) => {
+      const nameA = a.name.first.toUpperCase();
+      const nameB = b.name.first.toUpperCase();
+      if (nameA < nameB) {
+        return 1;
+      }
+      if (nameA > nameB) {
+        return -1;
+      }
+
+      return 0;
+    },
   },
   default: {
     class: "sort",
-    fn: (a, b) => a,
+    // fn: (a, b) => a,
   },
 };
 
 class Table extends Component {
   constructor(props) {
     super(props);
-    this.state = { users: [], search: "", currentSort: "default" };
-    // this.state = { users: [], search: "" };
+    this.state = {
+      users: [],
+      sortedUsers: [],
+      search: "",
+      currentSort: "default",
+    };
   }
 
   componentDidMount() {
     Api.search().then((res) => {
-      this.setState({ users: res.data.results }, () => console.log(this.state));
+      this.setState(
+        { users: res.data.results, sortedUsers: res.data.results },
+        () => console.log(this.state)
+      );
     });
   }
 
@@ -50,7 +79,8 @@ class Table extends Component {
     );
   };
 
-  onSortChange = () => {
+  onClick = (e) => {
+    e.preventDefault();
     const { currentSort } = this.state;
     let nextSort;
 
@@ -58,25 +88,20 @@ class Table extends Component {
     else if (currentSort === "up") nextSort = "default";
     else if (currentSort === "default") nextSort = "down";
 
-    this.setState({
-      currentSort: nextSort,
-    });
-  };
+    console.log(this.state.currentSort, nextSort);
 
-  onClick = (e) => {
-    e.preventDefault();
-    this.state.users.sort((a, b) => (a.users > b.users ? 1 : -1));
-    let value = e.target.value;
-    const name = e.target.name;
-    this.setState(
-      {
-        [name]: value,
-      },
-      () =>
-        console.log(
-          this.state.users.sort((a, b) => (a.users > b.users ? 1 : -1))
-        )
-    );
+    if (nextSort === "default") {
+      let originalUsers = this.state.users;
+
+      this.setState({
+        sortedUsers: originalUsers,
+        currentSort: nextSort,
+      });
+    } else {
+      let newSortedUsers = this.state.sortedUsers;
+      newSortedUsers.sort(sortTypes[nextSort].fn);
+      this.setState({ sortedUsers: newSortedUsers, currentSort: nextSort });
+    }
   };
 
   render() {
@@ -97,7 +122,6 @@ class Table extends Component {
             <tr className="tableHead">
               <th scope="col"></th>
               <th scope="col">
-                {/* <i class="fas fa-arrow-up" onClick={this.onClick}></i> First{" "} */}
                 <button onClick={this.onClick}>
                   <i className={`fas fa-${sortTypes[currentSort].class}`} />
                 </button>{" "}
@@ -110,13 +134,12 @@ class Table extends Component {
             </tr>
           </thead>
           <tbody>
-            {this.state.users
+            {this.state.sortedUsers
               .filter((user) =>
                 user.name.first
                   .toLowerCase()
                   .includes(this.state.search.toLowerCase())
               )
-              // .sort(sortTypes[currentSort].fn)
               .map((user, index) => (
                 <TableRow
                   key={index}
