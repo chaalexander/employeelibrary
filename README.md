@@ -1,5 +1,5 @@
 <img align="left" src= "https://img.shields.io/badge/License-MIT-green">
-<img align="right" width="100" height="100" src="https://avatars1.githubusercontent.com/u/59755481?v=4">
+<img align="right" width="100" height="100" style="border-radius:45%" src="https://avatars1.githubusercontent.com/u/59755481?v=4">
 <h1 align= "center">Employee Library</h1> 
 <h2>Live Link</h2>
 <h3><a target="_blank" href= "https://chaalexander.github.io/employeelibrary/" >Live Link</a></h3>  
