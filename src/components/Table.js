@@ -122,9 +122,10 @@ class Table extends Component {
             <tr className="tableHead">
               <th scope="col"></th>
               <th scope="col">
-                <button onClick={this.onClick}>
-                  <i className={`fas fa-${sortTypes[currentSort].class}`} />
-                </button>{" "}
+                <i
+                  className={`fas fa-${sortTypes[currentSort].class}`}
+                  onClick={this.onClick}
+                />{" "}
                 First
               </th>
               <th scope="col">Last</th>

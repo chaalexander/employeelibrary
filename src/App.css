@@ -7,13 +7,20 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.4;
-  background-color: aqua;
+  background-color: #ffe9ec;
+}
+.table {
+  margin-bottom: 50px;
 }
 
 .tableRow {
-  background-color: blueviolet;
+  background-color: #ffd0d6;
 }
 
 .tableHead {
-  background-color: brown;
+  background-color: #ff8493;
+}
+
+.container {
+  margin-top: 50px;
 }
