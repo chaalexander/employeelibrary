@@ -2,7 +2,7 @@
 <img align="right" width="100" height="100" src="https://avatars1.githubusercontent.com/u/59755481?v=4">
 <h1 align= "center">Employee Library</h1> 
 <h2>Live Link</h2>
-<h3><a href= "https://chaalexander.github.io/employeelibrary/">Live Link</a></h3>  
+<h3><a href= "https://chaalexander.github.io/employeelibrary/" target="_blank">Live Link</a></h3>  
 <h2> Table of Contents </h2>
 <li><a href="#description">Description</a></li>  
 <li><a href="#tech">Technology Stack</a></li> 
@@ -28,10 +28,10 @@ Search the employee you are looking for by name or country.
 <!-- <img width="200" height="300" src= "">
 <img width="200" height="300" src= ""> -->
 <h2 id="contributors"> Contributors </h2>
-<p><a href= "https://github.com/chaalexander">@chaalexander</a></p> 
+<p><a href= "https://github.com/chaalexander" target="_blank">@chaalexander</a></p> 
 <h2 id="contact"> Contact </h2>         
 <h5> Name: Charlenne Alexander </h5>       
-<h5><a href= "https://github.com/chaalexander">GitHub</a></h5>  
-<h5><a href= "https://chaalexander.github.io/">Portfolio</a></h5>  
-<h5><a href= "mailto:charlennep@gmail.com">charlennep@gmail.com</a></h5>       
-<h5><a href= "https://www.linkedin.com/in/cha-alexander">LinkedIn</a></h5>
+<h5><a href= "https://github.com/chaalexander" target="_blank">GitHub</a></h5>  
+<h5><a href= "https://chaalexander.github.io/" target="_blank">Portfolio</a></h5>  
+<h5><a href= "mailto:charlennep@gmail.com" target="_blank">charlennep@gmail.com</a></h5>       
+<h5><a href= "https://www.linkedin.com/in/cha-alexander" target="_blank">LinkedIn</a></h5>
