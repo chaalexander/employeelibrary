@@ -8,6 +8,7 @@ const styles = {
   },
 };
 
+// creating the function with the props for the table rows
 export default function TableRow(props) {
   return (
     <>

@@ -11,6 +11,7 @@ const inputStyle = {
   width: "300px",
 };
 
+// creating the class for each icon
 const sortTypes = {
   up: {
     class: "arrow-up",
@@ -59,6 +60,7 @@ class Table extends Component {
     };
   }
 
+  // making the ajax call
   componentDidMount() {
     Api.search().then((res) => {
       this.setState(
@@ -68,6 +70,7 @@ class Table extends Component {
     });
   }
 
+  // creating the on change function for the search
   onChange = (e) => {
     let value = e.target.value;
     const name = e.target.name;
@@ -79,6 +82,7 @@ class Table extends Component {
     );
   };
 
+  // creating the on click event with the sort function
   onClick = (e) => {
     e.preventDefault();
     const { currentSort } = this.state;
@@ -104,6 +108,7 @@ class Table extends Component {
     }
   };
 
+  // render the table with the info
   render() {
     const { currentSort } = this.state;
     return (
